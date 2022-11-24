@@ -1,7 +1,7 @@
 <nav class="navbar" role="navigation" aria-label="main navigation" data-controller="menu">
   <div class="navbar-brand">
     <h2 class="subtitle is-2">
-      <pre>Image or Logo</pre>
+      <%= link_to "Twitter Clone", root_path, class: "pr-4" %>
     </h2>
 
     <a role="button" class="navbar-burger" data-action="click->menu#toggle" aria-label="menu" aria-expanded="false">
@@ -15,9 +15,10 @@
     <div class="navbar-start">
 
       <% if current_user %>
-        <pre>logged in menu links</pre>
+        <%= link_to "New tweet", new_tweet_path, class: "navbar-item" %>
+        <%= link_to "Profile", profile_path(id: current_user.id), class: "navbar-item" %>
       <% else %>
-        <pre>logged out menu links</pre>
+        <%= link_to "About", about_path, class: "navbar-item" %>
       <% end %>
     </div>
 

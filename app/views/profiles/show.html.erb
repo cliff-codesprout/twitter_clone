@@ -1,0 +1,9 @@
+<h1>Viewing tweets from <%= @user.display_name %></h1>
+
+<% if current_user.id == @user.id %>
+  <%= link_to "Edit profile", edit_profile_path(id: current_user.id) %>
+<% end %>
+
+<% @tweets.each do |tweet| %>
+  <%= render "shared/tweet_body", tweet: tweet %>
+<% end %>
